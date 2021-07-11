@@ -15,6 +15,10 @@ class Calc extends Component {
 
     calculation = () => {
         let operatorcalc = this.state.operator
+        this.setState({
+            value1: '',
+            operator: ''
+        })
 
         if (operatorcalc === '+') {
             this.setState ({
@@ -33,11 +37,11 @@ class Calc extends Component {
                 number1: parseInt(this.state.value1) / parseInt(this.state.number1)
             });
         }
-        setTimeout(() => {this.clearscreen()}, 7000)
     }
 
 
     inputnumberone = (num) => {
+        // console.log(num)
         this.setState ({
             number1: this.state.number1 + num
         });
@@ -65,7 +69,7 @@ class Calc extends Component {
                 <center>
                     <div className="form">
                         <div className="inputs">
-                            <input className="inputfield" type="text" placeholder="0" value={this.state.number1} ref='number' autoFocus="true" />
+                            <input className="inputfield" type="text" placeholder="0" value={this.state.value1 + this.state.operator + this.state.number1} ref='number' autoFocus="true" />
                         </div>
                         <div className='calc-inputs'>
 
